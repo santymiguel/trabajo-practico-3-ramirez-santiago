@@ -30,3 +30,9 @@ function renderizarPersonajes(Lista = Personajes) {
 </div>`;
   });
 }
+/* funcion de inicio*/
+async function init() {
+  await cargarPersonajes();
+  renderizarPersonajes();
+}
+init();
