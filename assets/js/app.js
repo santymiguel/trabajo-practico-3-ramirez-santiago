@@ -56,3 +56,35 @@ buscar.addEventListener("click", () => {
   }
   fitrarPersonajes(texto);
 });
+/* funcion de detalle */
+async function cargarDetalles(id) {
+  const respuesta = await fetch(
+    `https://thesimpsonsapi.com/api/characters/${id}`,
+  );
+  const personaje = await respuesta.json();
+  mostrarModal(personaje);
+}
+
+contenedor.addEventListener("click", async (e) => {
+  if (e.target.classList.contains("btnDetalles")) {
+    const id = e.target.dataset.id;
+    cargarDetalles(id);
+  }
+});
+// modal de detalle
+function mostrarModal(p) {
+  document.querySelector("#modal_imagen").src =
+    "https://cdn.thesimpsonsapi.com/500" + p.portrait_path;
+  document.querySelector("#modal_nombre").textContent = p.name;
+  document.querySelector("#modal_nacimiento").textContent =
+    "Fecha de nacimiento: " + p.birthdate;
+  document.querySelector("#modal_edad").textContent = "edad: " + p.age;
+  document.querySelector("#modal_genero").textContent = "genero: " + p.gender;
+  document.querySelector("#modal_ocupacion").textContent =
+    "ocupacion: " + p.occupation;
+  document.querySelector("#modal_estado").textContent = "estado: " + p.status;
+  document.querySelector("#modal_frase").textContent =
+    "Frase iconica: " + p.phrases[0];
+  const modal = new bootstrap.Modal(document.getElementById("modal_personaje"));
+  modal.show();
+}
