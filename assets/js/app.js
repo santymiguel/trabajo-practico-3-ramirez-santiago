@@ -36,3 +36,15 @@ async function init() {
   renderizarPersonajes();
 }
 init();
+/* funcion de filtrar personajes */
+function fitrarPersonajes(texto) {
+  const filtrados = Personajes.filter((f) =>
+    f.name.toLowerCase().includes(texto.toLowerCase()),
+  );
+  limpiarResultados();
+  if (filtrados.length === 0) {
+    contenedor.innerHTML = "<p> no se encontraron personajes</p>";
+    return;
+  }
+  renderizarPersonajes(filtrados);
+}
