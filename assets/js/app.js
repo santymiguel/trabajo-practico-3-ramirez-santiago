@@ -11,3 +11,7 @@ async function cargarPersonajes() {
     console.error("error al cargar el listado");
   }
 }
+/* funcion de limpiar resultados*/
+function limpiarResultados() {
+  contenedor.innerHTML = "";
+}
