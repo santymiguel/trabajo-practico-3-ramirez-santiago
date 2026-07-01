@@ -25,6 +25,7 @@ function renderizarPersonajes(Lista = Personajes) {
   <div class="card-body">
     <h5 class="card-title">${personaje.name}</h5>
     <p class="card-text">ocupacion: ${personaje.occupation}</p>
+    <p class="card-text">estado: ${personaje.status}</p>
     <button data-id = "${personaje.id}" class="btnDetalles btn btn-primary">ver detalles</button>
   </div>
 </div>`;
