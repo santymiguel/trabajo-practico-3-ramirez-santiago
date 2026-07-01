@@ -48,3 +48,11 @@ function fitrarPersonajes(texto) {
   }
   renderizarPersonajes(filtrados);
 }
+buscar.addEventListener("click", () => {
+  const texto = document.querySelector("#buscar").value.trim();
+  if (texto === "") {
+    alert("debe ingresar un nombre");
+    return;
+  }
+  fitrarPersonajes(texto);
+});
